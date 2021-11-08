@@ -5,27 +5,13 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double appBarHeight = MediaQuery.of(context).padding.top + kToolbarHeight;
-    double heightBox = screenHeight - appBarHeight;
-
+    double boxHeight = screenHeight - appBarHeight;
     return Scaffold(
       appBar: AppBar(
         title: Text("Rainbow Layout"),
-
       ),
       body: Container(
-          child: RainbowLayout(boxHeight: heightBox)
-      ),
-    );
-  }
-}
-
-class RainbowLayout extends StatelessWidget {
-  const RainbowLayout({Key? key, required this.boxHeight,}) : super(key: key);
-  final double boxHeight;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
+      child: Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
               Container(
@@ -65,6 +51,8 @@ class RainbowLayout extends StatelessWidget {
                 ),
               )
             ],
-          );
+          )
+    )
+    );
   }
 }
